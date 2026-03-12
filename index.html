@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmet Selçuk Arslan</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            padding-top: 70px; 
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+        <div class="container">
+            
+            <a class="navbar-brand fw-bold" href="#">Ahmet Selçuk Arslan</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open/Close Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#projects">Projects/Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    
+    <!-- ABOUT -->
+    <section id="about" class="container text-center py-5">
+        
+        <h1 class="display-5 fw-bold mb-5">About</h1>
+        
+        <img src="website_images/about/ben.JPG" alt="Profile Pic" class="img-fluid rounded-4 mb-4" style="width: 300px; height: 330px; object-fit: cover; background-color: #999;">
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <p class="mb-4">
+                    I am currently pursuing an MSc in Applied Social Data Science at LSE, with a strong interest in machine learning. I mainly enjoy building models that make predictive and probabilistic estimates from data, and I am especially interested in how these models can be developed, tested, and used in a reliable way. I enjoy working on projects with a focus on MLOps.
+                </p>
+            </div>
+        </div>
+        
+    </section>
+    
+    <!-- PROJECTS -->
+    <section id="projects" class="container text-center py-5">
+        
+        <h2 class="display-5 fw-bold mb-5">Projects</h2>
+
+        <div id="projectsCarousel" class="carousel carousel-dark slide" data-bs-ride="false">
+            <div class="carousel-inner px-5"> 
+                
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card border-0 h-100">
+                                
+                                <a href="website_project_pages/project-detail_ai-copilot-for-marketing.html" class="text-decoration-none text-dark d-block">
+                                    <img src="website_images/projects/ai-copilot-for-marketing/ai-copilot-for-marketing.png" class="card-img-top rounded-4 mb-3" alt="Project 1" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
+                                    <div class="card-body px-0 pb-2">
+                                        <h5 class="card-title fw-bold">RAG-Powered Marketing AI Chatbot</h5>
+                                        <p class="card-text" style="font-size: 0.9rem;">An AI chatbot that uses Retrieval-Augmented Generation (RAG) to answer marketing strategy questions. It searches a vector database of marketing knowledge before generating responses. Ask questions and instantly receive strategy ideas.</p>
+                                    </div>
+                                </a>
+                                
+                                <div class="px-0">
+                                    <a href="website_project_pages/project-detail_ai-copilot-for-marketing.html" class="btn btn-dark btn-sm rounded-pill px-3">Details</a>
+                                    <span class="mx-2">|</span>
+                                    <a href="https://huggingface.co/spaces/asa616/ai-copilot-for-marketing" target="_blank" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">Link to App</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card border-0 h-100">
+                                <a href="website_project_pages/project-detail_bi-agent.html" class="text-decoration-none text-dark d-block">
+                                    <img src="website_images/projects/bi-agent/bi-agent.png" class="card-img-top rounded-4 mb-3" alt="Project 2" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
+                                    <div class="card-body px-0 pb-2">
+                                        <h5 class="card-title fw-bold">AI Copilot for Customer & Sales Analytics</h5>
+                                        <p class="card-text" style="font-size: 0.9rem;">An AI copilot for customer and sales analytics that lets users explore a SQLite database in plain English. It combines lead scoring, SQL generation, and interactive charts to turn customer and sales data into quick business insights. The app is publicly deployed and designed for easy, non-technical use.</p>
+                                    </div>
+                                </a>
+                                <div class="px-0">
+                                    <a href="website_project_pages/project-detail_bi-agent.html" class="btn btn-dark btn-sm rounded-pill px-3">Details</a>
+                                    <span class="mx-2">|</span>
+                                    <a href="https://huggingface.co/spaces/asa616/customer-sales-analytics-bi" target="_blank" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">Link to App</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card border-0 h-100">
+                                <a href="website_project_pages/project-detail_dataset-cleaner.html" class="text-decoration-none text-dark d-block">
+                                    <img src="website_images/projects/dataset-cleaner/dataset-cleaner.png" class="card-img-top rounded-4 mb-3" alt="Project 3" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
+                                    <div class="card-body px-0 pb-2">
+                                        <h5 class="card-title fw-bold">ML-Ready Data Preparation and Cleaning App</h5>
+                                        <p class="card-text" style="font-size: 0.9rem;">An interactive app that turns raw tabular data into a clean, model-ready dataset. It supports automated preprocessing steps such as missing value imputation, feature engineering, scaling, and optional outlier removal. Built with Python and Streamlit for faster and more practical ML data preparation.</p>
+                                    </div>
+                                </a>
+                                <div class="px-0">
+                                    <a href="website_project_pages/project-detail_dataset-cleaner.html" class="btn btn-dark btn-sm rounded-pill px-3">Details</a>
+                                    <span class="mx-2">|</span>
+                                    <a href="https://huggingface.co/spaces/asa616/ML-dataset-cleaner-app" target="_blank" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">Link to App</a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+
+                <!-- <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card border-0 h-100">
+                                <a href="project-detail.html" class="text-decoration-none text-dark d-block">
+                                    <img src="website_images/projects/4.jpg" class="card-img-top rounded-4 mb-3" alt="Project 4" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
+                                    <div class="card-body px-0 pb-2">
+                                        <h5 class="card-title fw-bold">Project 4</h5>
+                                        <p class="card-text" style="font-size: 0.9rem;">***HERE***</p>
+                                    </div>
+                                </a>
+                                <div class="px-0">
+                                    <a href="project-detail.html" class="btn btn-dark btn-sm rounded-pill px-3">Details</a>
+                                    <span class="mx-2">|</span>
+                                    <a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <button class="carousel-control-prev w-auto" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            
+            <button class="carousel-control-next w-auto" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+        </section>
+
+        <section id="research" class="container text-center py-5">
+            
+            <h2 class="display-5 fw-bold mb-5">Research & Publications</h2>
+
+            <div id="researchCarousel" class="carousel carousel-dark slide" data-bs-ride="false">
+                <div class="carousel-inner px-5"> 
+
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            
+                            <div class="col-12 col-md-4 mb-4">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <img src="website_images/research/NRASDCS.png" class="card-img-top rounded-top-4 mb-3" alt="Research 1" style="object-fit: cover; height: 150px; background-color: #d1c4e9;">
+                                    <div class="card-body px-3 pb-3">
+                                        <h5 class="card-title fw-bold fs-6">Neorealist Analysis of Security Dilemma in Cyberspace: A Quantitative Study</h5>
+                                        <a href="https://preprints.apsanet.org/engage/apsa/article-details/6637599391aefa6ce1329cbc" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill px-3 mt-2">Read Paper</a>
+                                    </div>
+                                </div>
+                            </div>
+
+        
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev w-auto" type="button" data-bs-target="#researchCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                
+                <button class="carousel-control-next w-auto" type="button" data-bs-target="#researchCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+        </section>
+        
+        <!-- CONTACT ME -->
+        <section id="contact" class="bg-light py-5">
+        <div class="container text-center">
+            
+            <h2 class="display-5 fw-bold mb-5 text-dark">Contact Me</h2>
+            
+            <div class="mb-5">
+                <a href="mailto:a.selcuk616@hotmail.com" class="text-dark text-decoration-none fs-4 fw-semibold">
+                    <img src="website_images/icons/mail.png" alt="Mail" width="40" height="40" class="me-2"> a.selcuk616@hotmail.com
+                </a>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap gap-4">
+                
+                <a href="https://linkedin.com/in/ahmet-selcuk-arslan-06160616" target="_blank" class="text-dark text-decoration-none text-center">
+                    <img src="website_images/icons/linkedin.png" alt="LinkedIn" class="mb-2" style="width: 60px; height: 60px; object-fit: contain;">
+                    <span class="d-block fw-bold">LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/ahmet-selcuk-arslan616" target="_blank" class="text-dark text-decoration-none text-center">
+                    <img src="website_images/icons/github.png" alt="GitHub" class="mb-2" style="width: 60px; height: 60px; object-fit: contain;">
+                    <span class="d-block fw-bold">GitHub</span>
+                </a>
+
+                <a href="https://huggingface.co/asa616" target="_blank" class="text-dark text-decoration-none text-center">
+                    <img src="website_images/icons/huggingface.png" alt="Hugging Face" class="mb-2" style="width: 60px; height: 60px; object-fit: contain;">
+                    <span class="d-block fw-bold">Hugging Face</span>
+                </a>
+
+                </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

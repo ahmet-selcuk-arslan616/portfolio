@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG-Powered Marketing AI Chatbot - Project Detail</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            padding-top: 70px;
+            color: #333;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+        h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        p, li {
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Ahmet Selçuk Arslan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open/Close Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                
+                <h1 class="display-6 fw-bold mb-4">RAG-Powered Marketing AI Chatbot</h1>
+                <hr class="mb-5">
+
+                <h3>Executive Summary:</h3>
+                <p>
+                    This project builds an AI chatbot that answers marketing questions using a Retrieval-Augmented Generation (RAG) system. Instead of relying only on the language model’s internal knowledge, the chatbot retrieves relevant information from a curated marketing knowledge base and uses it to generate responses.
+                    The system processes marketing content (such as strategy discussions and insights) and stores it in a vector database. When a user asks a question, the system retrieves the most relevant pieces of information and uses them to generate practical marketing recommendations.
+                    The goal is to provide quick, context-aware marketing insights such as:
+                </p>
+                <ul>
+                    <li>Social media strategy ideas</li>
+                    <li>Content marketing suggestions</li>
+                    <li>Audience engagement tactics</li>
+                </ul>
+
+                <video class="w-100 rounded-3 my-4 border shadow-sm" autoplay loop muted playsinline>
+                    <source src="../website_images/projects/ai-copilot-for-marketing/ai-copilot-for-marketing-showcase-video.mp4" type="video/mp4">
+                </video>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to app:</strong> 
+                        <a href="https://huggingface.co/spaces/asa616/ai-copilot-for-marketing" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            AI Copilot for Marketing ↗
+                        </a>
+                    </p>
+                    
+                    <div class="alert alert-info border-0 shadow-sm" role="alert">
+                        <strong>ℹ️ Note:</strong> Hugging Face Spaces automatically pause after a period of inactivity. If you see a "Space sleeping" screen, please click the <strong>Restart this Space</strong> button and wait a few moments for the app to load.
+                    </div>
+                </div>
+
+                <h3>Business Problem:</h3>
+                <p>
+                    Marketing teams and founders often look for quick, reliable advice when developing strategies for social media, content creation, and audience engagement. However, searching through long videos, articles, or marketing resources can be time-consuming.
+                    This project addresses that problem by creating an AI assistant that can search a curated marketing knowledge base and provide relevant strategy recommendations instantly.
+                    Instead of manually reviewing multiple sources, users can simply ask a question and receive summarized marketing insights in seconds.
+                </p>
+
+                <!-- <img src="../website_images/projects/ai-copilot-for-marketing/flowchart.png" alt="Order Completion Flowchart" class="project-image"> -->
+
+                <h3>Methodology:</h3>
+                <ol>
+                    <li>Collect marketing-related content and transcripts from selected YouTube videos via Google API.</li>
+                    <li>Split the text into smaller chunks and convert them into vector embeddings using an embedding model.</li>
+                    <li>Store the embeddings in a vector database (Chroma) to enable semantic search.</li>
+                    <li>When a user asks a question, retrieve the most relevant pieces of content from the database.</li>
+                    <li>Use a large language model (LLM) to generate a response based on the retrieved context.</li>
+                    <li>Deploy the system as an interactive chatbot using Streamlit.</li>
+                </ol>
+
+                <h3>Skills:</h3>
+                <p>
+                    <strong>Python:</strong> data processing, API integration, building RAG pipelines<br>
+                    <strong>LLMs & AI:</strong> Retrieval-Augmented Generation (RAG), prompt design, embeddings<br>
+                    <strong>Vector Databases:</strong> Chroma, semantic search, similarity retrieval<br>
+                    <strong>Deployment:</strong> Docker, Hugging Face Spaces, Streamlit applications<br>
+                </p>
+
+                <h3>Results & Business Recommendation:</h3>
+                <p>
+                    The final system allows users to ask marketing questions and receive strategy suggestions based on a curated knowledge base.
+                </p>
+                <p>
+                    Instead of generating generic answers, the chatbot retrieves relevant information from stored marketing content before producing a response. This improves both the relevance and practical usefulness of the answers.
+                </p>
+                <p>
+                    The project demonstrates how RAG systems can combine information retrieval and generative AI to create domain-specific assistants.
+                </p>
+
+                <!-- <img src="../website_images/projects/ai-copilot-for-marketing/barchart.png" alt="Revenue Impact Bar Chart" class="project-image"> -->
+
+                <h3>Next Steps:</h3>
+                <ol>
+                    <li>Expand the knowledge base with additional marketing content sources.</li>
+                    <li>Improve retrieval quality using better chunking and embedding strategies.</li>
+                    <li>Introduce evaluation metrics to measure response quality and retrieval accuracy.</li>
+                </ol>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

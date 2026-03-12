@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML-Ready Data Preparation and Cleaning App - Project Detail</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            padding-top: 70px;
+            color: #333;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+        h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        p, li {
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Ahmet Selçuk Arslan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open/Close Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                
+                <h1 class="display-6 fw-bold mb-4">ML-Ready Data Preparation and Cleaning App</h1>
+                <hr class="mb-5">
+
+                <h3>Executive Summary:</h3>
+                <p>
+                    Using Python, Streamlit, and a full preprocessing pipeline built with pandas and scikit-learn tools, I developed an interactive app that turns raw tabular data into a clean, consistent, and model-ready dataset. The app lets users upload files, detect data types automatically, handle missing values, remove duplicates, engineer new features, optionally treat outliers, and download the cleaned output in the same format. It is designed to reduce manual preprocessing time and make machine learning workflows faster and more reliable.
+                </p>
+                <ul>
+                    <li>Automatic data type detection</li>
+                    <li>Missing value handling and imputation</li>
+                    <li>Feature engineering for tabular ML</li>
+                    <li>Export-ready cleaned datasets</li>
+                    <li>EDA report generation</li>
+                </ul>
+
+                <video class="w-100 rounded-3 my-4 border shadow-sm" autoplay loop muted playsinline>
+                    <source src="../website_images/projects/dataset-cleaner/dataset-cleaner-app-showcase-video.mp4" type="video/mp4">
+                </video>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to app:</strong> 
+                        <a href="https://huggingface.co/spaces/asa616/ML-dataset-cleaner-app" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            ML-Ready Data Preparation and Cleaning App ↗
+                        </a>
+                    </p>
+                    
+                    <div class="alert alert-info border-0 shadow-sm" role="alert">
+                        <strong>ℹ️ Note:</strong> Hugging Face Spaces automatically pause after a period of inactivity. If you see a "Space sleeping" screen, please click the <strong>Restart this Space</strong> button and wait a few moments for the app to load.
+                    </div>
+                </div>
+
+                <h3>Business Problem:</h3>
+                <p>
+                    Raw business data is often messy and inconsistent. Missing values, duplicate rows, mixed data types, invalid column names, and weak feature structures can slow down analysis and reduce model performance. Preparing these datasets by hand takes time and creates room for error.
+                    This app solves that problem by giving users a simple interface where they can upload a dataset and quickly convert it into a machine-learning-ready table without writing preprocessing code from scratch.
+                </p>
+
+                <!-- <img src="../website_images/projects/ai-copilot-for-marketing/flowchart.png" alt="Order Completion Flowchart" class="project-image"> -->
+
+                <h3>Methodology:</h3>
+                <ol>
+                    <li>Upload tabular data from CSV, Excel, Parquet, or SQLite.</li>
+                    <li>Automatically clean column names, remove duplicates, and standardize missing-value patterns.</li>
+                    <li>Infer column types such as numeric, categorical, and datetime.</li>
+                    <li>Optionally impute missing numeric values with a custom MissForest implementation based on Random Forests.</li>
+                    <li>Optionally generate new features such as math features, relative features, datetime features, and cyclical features.</li>
+                    <li>Optionally apply one-hot encoding, normalization, and outlier removal.</li>
+                    <li>Preview the cleaned dataset and download it in the original file format.</li>
+                </ol>
+
+                <h3>Skills:</h3>
+                <p>
+                    <strong>Python:</strong> data cleaning, preprocessing pipelines, feature engineering, custom transformer development, model-ready dataset preparation, file handling, app logic<br>
+                    <strong>Streamlit:</strong> interactive UI design, file upload workflows, session-state management, downloadable outputs, EDA preview integration<br>
+                    <strong>Machine Learning / Data Preparation:</strong> missing value imputation, outlier detection, categorical encoding, scaling, datetime transformation, duplicate and constant-feature removal<br>
+                    <strong>Data Tools & Libraries:</strong> pandas, NumPy, scikit-learn, PyJanitor, SciPy, SQLite<br>
+                </p>
+
+                <h3>Results & Business Recommendation:</h3>
+                <p>
+                    This app makes tabular data preparation much faster and more accessible, especially for users who want a practical preprocessing workflow without building everything manually. Instead of spending time writing repeated cleaning code, users can upload a dataset, choose a few settings, and get back a cleaner version that is easier to use for machine learning or analysis.
+                </p>
+                <p>
+                    The app supports both a simple automatic mode and a more flexible advanced mode. This makes it useful for both quick cleaning tasks and more controlled preprocessing workflows. It also keeps the experience practical by allowing users to preview outputs, generate an optional EDA report, and download the cleaned dataset in the same format they uploaded.
+                </p>
+                <p>
+                    Because the pipeline combines cleaning, imputation, feature engineering, and export in one place, it helps reduce preprocessing friction and creates a smoother path from raw data to modeling.
+                </p>
+
+                <!-- <img src="../website_images/projects/ai-copilot-for-marketing/barchart.png" alt="Revenue Impact Bar Chart" class="project-image"> -->
+
+                <h3>Next Steps:</h3>
+                <ol>
+                    <li>Add support for target-aware preprocessing recommendations.</li>
+                    <li>Expand file support and larger-scale performance handling.</li>
+                    <li>Add pipeline export so users can reuse the same preprocessing steps in future ML projects.</li>
+                </ol>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

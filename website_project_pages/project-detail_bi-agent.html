@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Copilot for Customer & Sales Analytics - Project Detail</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            padding-top: 70px;
+            color: #333;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+        h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        p, li {
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Ahmet Selçuk Arslan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open/Close Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                
+                <h1 class="display-6 fw-bold mb-4">AI Copilot for Customer & Sales Analytics</h1>
+                <hr class="mb-5">
+
+                <h3>Executive Summary:</h3>
+                <p>
+                    This project combines predictive lead scoring and conversational business intelligence in one application. A lead scoring pipeline estimates which users are most likely to purchase, and the resulting probabilities are written back into a SQLite database for later analysis.
+                </p>
+                <p>
+                    On top of that, the project provides a Streamlit-based AI copilot that lets users ask questions about customer, product, and transaction data in plain English. The system uses LangChain and LangGraph to translate user questions into SQL, run the query, and return either a data table or a Plotly chart depending on the request.
+                </p>
+
+                <video class="w-100 rounded-3 my-4 border shadow-sm" autoplay loop muted playsinline>
+                    <source src="../website_images/projects/bi-agent/bi-agent-showcase-video.mp4" type="video/mp4">
+                </video>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to app:</strong> 
+                        <a href="https://huggingface.co/spaces/asa616/customer-sales-analytics-bi" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            AI Copilot for Customer & Sales Analytics ↗
+                        </a>
+                    </p>
+                    
+                    <div class="alert alert-info border-0 shadow-sm" role="alert">
+                        <strong>ℹ️ Note:</strong> Hugging Face Spaces automatically pause after a period of inactivity. If you see a "Space sleeping" screen, please click the <strong>Restart this Space</strong> button and wait a few moments for the app to load.
+                    </div>
+                </div>
+
+                <h3>Business Problem:</h3>
+                <p>
+                    Customer and sales data often sit inside databases that non-technical teams cannot easily explore on their own. Simple questions such as which leads are most likely to purchase, which products generate the most revenue, or how sales change over time usually require SQL knowledge or support from a data team.
+                </p>
+                <p>
+                    This project addresses that problem by combining lead scoring with a natural-language analytics interface. Instead of relying on manual SQL queries, the system allows users to interact with the database through chat and receive structured outputs as tables or charts.
+                </p>
+
+                
+
+                <h3>Methodology:</h3>
+                <ol>
+                    <li><strong>Predictive Lead Scoring:</strong> Lead, product, and transaction data are read from a SQLite database using pandas and sqlalchemy. A binary purchase target is created from transaction history, and H2O AutoML is used to train models that predict purchase probability. The best model is saved and its predictions are written back into the database as a new scored table.</li>
+                    <li><strong>Agent Workflow:</strong> A LangGraph workflow processes each user question by reformatting it for SQL generation, routing the request, creating the SQL query, executing it, and converting the result into a dataframe. The workflow then decides whether the final output should be a table or a chart.</li>
+                    <li><strong>Visualization & Interface:</strong> When a chart is requested, the system generates Plotly code dynamically through a Python REPL tool and renders the result inside a Streamlit interface. Tables and charts are stored in session state so that outputs remain visible across the chat history.</li>
+                    <li><strong>Deployment:</strong> The application is containerized with Docker and deployed on Hugging Face Spaces, which makes the tool publicly accessible through the browser.</li>
+                </ol>
+
+                <p>
+                    <strong>Workflow Overview:</strong> The diagram below shows how the app routes a user question, generates SQL, prepares the result, and returns either a table or a chart.
+                </p>
+
+                <img src="../website_images/projects/bi-agent/DAG.png" alt="LangGraph workflow DAG" class="project-image d-block mx-auto">
+                
+                <h3>Skills:</h3>
+                <p>
+                    <strong>Python & Data Work:</strong> pandas, sqlalchemy, data preparation, dataframe operations, session state management<br>
+                    <strong>Machine Learning:</strong> H2O, H2O AutoML, binary classification, lead scoring, model saving/loading<br>
+                    <strong>LLMs & AI Engineering:</strong> OpenAI API, LangChain, LangGraph, prompt design, SQL generation, routing logic, tool-based workflows<br>
+                    <strong>Data Visualization:</strong> Plotly, Plotly Express, dynamic chart generation, chat-based analytics interface<br>
+                    <strong>Deployment:</strong> Docker, Hugging Face Spaces, Streamlit applications<br>
+                </p>
+
+                <h3>Results & Business Recommendation:</h3>
+                <p>
+                    Users can ask plain-English questions such as what tables exist in the database, what a table contains, which customers have the highest predicted purchase probability, what the top products are by revenue, or how sales evolve over time.
+                </p>
+                <p>
+                    On the modeling side, the project adds predictive value by scoring leads and storing those probabilities directly in the database. On the application side, it improves accessibility by allowing users to query and visualize data without writing SQL manually or setting up the project locally.
+                </p>
+                <p>
+                    It demonstrates how AutoML, SQL, LLMs, interactive visualization, and public deployment can be combined into a business analytics tool for customer and sales use cases.
+                </p>
+
+                <!-- <img src="../website_images/projects/bi-agent/barchart.png" alt="Revenue Impact Bar Chart" class="project-image"> -->
+
+                <h3>Next Steps:</h3>
+                <ol>
+                    <li>Add stronger error handling for failed SQL generation or plotting steps.</li>
+                    <li>Improve the routing and prompting logic for more complex chart requests.</li>
+                    <li>Expand the app with better filters, richer chart options, and additional analytics use cases.</li>
+                </ol>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
