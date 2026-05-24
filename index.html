@@ -22,6 +22,20 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+
+        .carousel-inner {
+            min-height: 480px; 
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-inner {
+                min-height: auto; 
+            }
+        }
+
+        .carousel-fade .carousel-item {
+            transition: opacity 0.3s ease-in-out !important;
+        }
     </style>
     
 </head>
@@ -77,30 +91,46 @@
         
         <h2 class="display-5 fw-bold mb-5">Projects</h2>
 
-        <div id="projectsCarousel" class="carousel carousel-dark slide" data-bs-ride="false">
+        <div id="projectsCarousel" class="carousel carousel-dark slide carousel-fade" data-bs-ride="false">
             <div class="carousel-inner px-5"> 
                 
                 <div class="carousel-item active">
                     <div class="row">
+                        
                         <div class="col-12 col-md-4 mb-4">
                             <div class="card border-0 h-100">
-                                
+                                <a href="website_project_pages/project-detail_churn-prediction.html" class="text-decoration-none text-dark d-block">
+                                    <img src="website_images/projects/churn-prediction/churn-prediction.png" class="card-img-top rounded-4 mb-3" alt="Project 3" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
+                                    <div class="card-body px-0 pb-2">
+                                        <h5 class="card-title fw-bold">Conformal Prediction for Customer Churn Modeling on AWS</h5>
+                                        <p class="card-text" style="font-size: 0.9rem;">A machine learning project that analyzes customer behavior and transaction data to predict the likelihood of churn. Includes data exploration, feature engineering, and predictive modeling to help optimize customer retention strategies.</p>
+                                    </div>
+                                </a>
+                                <div class="px-0">
+                                    <a href="website_project_pages/project-detail_churn-prediction.html" class="btn btn-dark btn-sm rounded-pill px-3">Details</a>
+                                    <span class="mx-2">|</span>
+                                    <a href="https://github.com/ahmet-selcuk-arslan616/ecommerce-churn-CP.git" target="_blank" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">Source Code and Report</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card border-0 h-100">
                                 <a href="website_project_pages/project-detail_ai-copilot-for-marketing.html" class="text-decoration-none text-dark d-block">
                                     <img src="website_images/projects/ai-copilot-for-marketing/ai-copilot-for-marketing.png" class="card-img-top rounded-4 mb-3" alt="Project 1" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
                                     <div class="card-body px-0 pb-2">
-                                        <h5 class="card-title fw-bold">RAG-Powered Marketing AI Chatbot</h5>
+                                        <h5 class="card-title fw-bold">Marketing AI Chatbot</h5>
                                         <p class="card-text" style="font-size: 0.9rem;">An AI chatbot that uses Retrieval-Augmented Generation (RAG) to answer marketing strategy questions. It searches a vector database of marketing knowledge before generating responses. Ask questions and instantly receive strategy ideas.</p>
                                     </div>
                                 </a>
-                                
                                 <div class="px-0">
                                     <a href="website_project_pages/project-detail_ai-copilot-for-marketing.html" class="btn btn-dark btn-sm rounded-pill px-3">Details</a>
                                     <span class="mx-2">|</span>
                                     <a href="https://huggingface.co/spaces/asa616/ai-copilot-for-marketing" target="_blank" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">Link to App</a>
                                 </div>
-
                             </div>
                         </div>
+
                         <div class="col-12 col-md-4 mb-4">
                             <div class="card border-0 h-100">
                                 <a href="website_project_pages/project-detail_bi-agent.html" class="text-decoration-none text-dark d-block">
@@ -117,11 +147,16 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
+                <div class="carousel-item">
+                    <div class="row">
+                        
                         <div class="col-12 col-md-4 mb-4">
                             <div class="card border-0 h-100">
                                 <a href="website_project_pages/project-detail_dataset-cleaner.html" class="text-decoration-none text-dark d-block">
-                                    <img src="website_images/projects/dataset-cleaner/dataset-cleaner.png" class="card-img-top rounded-4 mb-3" alt="Project 3" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
+                                    <img src="website_images/projects/dataset-cleaner/dataset-cleaner.png" class="card-img-top rounded-4 mb-3" alt="Project 4" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
                                     <div class="card-body px-0 pb-2">
                                         <h5 class="card-title fw-bold">ML-Ready Data Preparation and Cleaning App</h5>
                                         <p class="card-text" style="font-size: 0.9rem;">An interactive app that turns raw tabular data into a clean, model-ready dataset. It supports automated preprocessing steps such as missing value imputation, feature engineering, scaling, and optional outlier removal. Built with Python and Streamlit for faster and more practical ML data preparation.</p>
@@ -134,29 +169,9 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
-                </div>
-
-                <!-- <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-12 col-md-4 mb-4">
-                            <div class="card border-0 h-100">
-                                <a href="project-detail.html" class="text-decoration-none text-dark d-block">
-                                    <img src="website_images/projects/4.jpg" class="card-img-top rounded-4 mb-3" alt="Project 4" style="object-fit: cover; height: 200px; background-color: #a8d5ba;">
-                                    <div class="card-body px-0 pb-2">
-                                        <h5 class="card-title fw-bold">Project 4</h5>
-                                        <p class="card-text" style="font-size: 0.9rem;">***HERE***</p>
-                                    </div>
-                                </a>
-                                <div class="px-0">
-                                    <a href="project-detail.html" class="btn btn-dark btn-sm rounded-pill px-3">Details</a>
-                                    <span class="mx-2">|</span>
-                                    <a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">Source Code</a>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
-                </div> -->
+                </div>
 
             </div>
 
@@ -171,13 +186,13 @@
             </button>
 
         </div>
-        </section>
+    </section>
 
         <section id="research" class="container text-center py-5">
             
             <h2 class="display-5 fw-bold mb-5">Research & Publications</h2>
 
-            <div id="researchCarousel" class="carousel carousel-dark slide" data-bs-ride="false">
+            <div id="researchCarousel" class="carousel carousel-dark slide carousel-fade" data-bs-ride="false">
                 <div class="carousel-inner px-5"> 
 
                     <div class="carousel-item active">

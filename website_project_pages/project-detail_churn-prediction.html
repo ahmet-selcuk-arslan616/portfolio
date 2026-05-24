@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conformal Prediction for Customer Churn Modeling on AWS - Project Detail</title>
+    <link rel="icon" type="image/png" href="../website_images/icons/portfolio.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding-top: 70px;
+            color: #333;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .small-project-image {
+            max-width: 75%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem auto;
+            border: 1px solid #e0e0e0;
+            display: block;
+        }
+
+        h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        p, li {
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .figure-caption-custom {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: center;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 1rem;
+            background-color: #fafafa;
+            height: 100%;
+        }
+
+        .metric-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0d6efd;
+        }
+
+        .simple-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .simple-table th,
+        .simple-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .simple-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .visual-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            background-color: #fafafa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pie-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .pie-chart {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            background: conic-gradient(#e74c3c 0deg 304.2deg, #26394d 304.2deg 360deg);
+            position: relative;
+            box-shadow: 0 0 0 1px #ddd;
+        }
+
+        .pie-chart::after {
+            content: "Class Distribution";
+            position: absolute;
+            width: 100%;
+            top: -2rem;
+            left: 0;
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .legend-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .formula-box {
+            background-color: #23272b;
+            color: #f5f5f5;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem auto;
+            max-width: 520px;
+            line-height: 2;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .formula-box span {
+            display: block;
+        }
+
+        .preprocessing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .preprocessing-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 1.2rem;
+            background-color: #fafafa;
+            height: 100%;
+        }
+
+        .preprocessing-card h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            color: #222;
+        }
+
+        .preprocessing-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .scaler-formula-box {
+            background-color: #23272b;
+            color: #f5f5f5;
+            border-radius: 10px;
+            padding: 1.4rem;
+            margin: 1.5rem auto;
+            max-width: 560px;
+            text-align: center;
+            font-family: Georgia, "Times New Roman", serif;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .scaler-formula-main {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+        }
+
+        .scaler-formula-sub {
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
+
+        .pipeline-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 1.2rem;
+            background-color: #fafafa;
+            margin: 1.5rem 0;
+        }
+
+        .pipeline-flow {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .pipeline-step {
+            flex: 1;
+            min-width: 130px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 0.9rem;
+            background: white;
+            text-align: center;
+            font-size: 0.92rem;
+        }
+
+        .pipeline-step strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: #777;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .arrow {
+                display: none;
+            }
+
+            .small-project-image {
+                max-width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Ahmet Selçuk Arslan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open/Close Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#projects">Projects/Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                
+                <h1 class="display-6 fw-bold mb-4">Conformal Prediction for Customer Churn Modeling on AWS</h1>
+                <hr class="mb-5">
+
+                <h3>Executive Summary:</h3>
+                <p>
+                    This project builds an end-to-end machine learning pipeline for predicting whether an online shopper is likely to leave without purchasing. In this project, a non-purchase is treated as a lost conversion or churn-risk situation, because the customer leaves the platform without generating revenue.
+                </p>
+                <p>
+                    The main contribution of the project is not only predicting purchase probability, but also measuring uncertainty with conformal prediction. Instead of giving only a raw probability or a hard yes/no decision, the system returns prediction sets that show whether the model is confident or unsure about a customer.
+                </p>
+                <p>
+                    This makes the project useful for marketing decisions. Confident customers can be handled normally, while uncertain customers can be targeted with stronger incentives such as discount coupons before they leave the website.
+                </p>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to GitHub Repository and Full Report:</strong> 
+                        <a href="https://github.com/ahmet-selcuk-arslan616/ecommerce-churn-CP.git" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            Conformal Prediction for Churn Risk ↗
+                        </a>
+                    </p>
+                </div>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to Original Dataset:</strong> 
+                        <a href="https://www.kaggle.com/datasets/thuandao/online-shoppers-purchasing-dataset?resource=download" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            Online Shoppers Purchasing Dataset on Kaggle ↗
+                        </a>
+                    </p>
+                </div>
+
+                <h3>Business Problem:</h3>
+                <p>
+                    E-commerce platforms collect large amounts of session-level data, but it is difficult to know which visitors are likely to leave without buying. A simple model can estimate purchase probability, but acting only on raw model outputs can be risky because not every prediction is equally reliable.
+                </p>
+                <p>
+                    This project addresses that problem by combining probability-based machine learning with conformal prediction. The goal is to help a marketing team decide whether a customer should receive a discount coupon, especially when the model is uncertain and the customer may still be persuaded.
+                </p>
+
+                <h3>Problem Context and Variables:</h3>
+                <p>
+                    The dataset contains 1 million simulated online shopping sessions. Each row represents a single visitor session and includes information about page visits, time spent on different page categories, traffic source, visitor type, device/browser information, and whether the session ended with a purchase.
+                </p>
+                <p>
+                    The target variable is <strong>Revenue</strong>. A value of 1 means the session ended with a purchase. A value of 0 means the customer did not purchase. In business terms, these non-purchase cases are treated as lost conversion opportunities.
+                </p>
+
+                <h3>Methodology:</h3>
+                <ol>
+                    <li><strong>Distributed Data Processing:</strong> The raw dataset is read from an AWS S3 bucket using PySpark on AWS EMR (I did not use SageMaker for greater flexibility in my workflow). Spark is used for the initial large-scale data handling and stratified splitting.</li>
+                    <li><strong>Feature Engineering:</strong> New behavioral features are created, such as average product time, average administrative time, total duration, product focus ratio, total page views, and cyclical month features.</li>
+                    <li><strong>Leakage Prevention:</strong> Leakage-prone or redundant columns are removed. For example, PageValues is dropped because it can reveal purchase outcome too directly, and BounceRates is removed due to its very high correlation with ExitRates.</li>
+                    <li><strong>Model Training:</strong> Logistic Regression, LightGBM, XGBoost, Random Forest, and a Stacked Ensemble are trained and compared. Optuna is used for hyperparameter tuning.</li>
+                    <li><strong>Probability Optimization:</strong> Models are optimized mainly with Brier Score because the project needs reliable probabilities, not only good class separation.</li>
+                    <li><strong>Threshold Tuning:</strong> After probability modeling, the decision threshold is tuned with the F2 Score because the business objective values recall more than precision.</li>
+                    <li><strong>Conformal Prediction:</strong> A calibration set is used to build conformal prediction sets. These sets show whether the model is confident enough to output a single class or uncertain enough to output both possible outcomes.</li>
+                    <li><strong>Model Tracking and Pipeline Saving:</strong> The best model is logged with MLflow, retrieved from the model registry, and used inside an end-to-end prediction pipeline.</li>
+                </ol>
+
+                <h3>Data Selection, Preprocessing, Feature Engineering and Transformation:</h3>
+                <p>
+                    The dataset is highly imbalanced. Most sessions do not result in a purchase, which is normal for e-commerce behavior. The class distribution is approximately 84.5% non-purchase and 15.5% purchase.
+                </p>
+
+                <div class="visual-card">
+                    <div class="pie-wrapper">
+                        <div class="pie-chart"></div>
+                        <div>
+                            <div class="legend-box">
+                                <span class="legend-color" style="background-color:#e74c3c;"></span>
+                                <span><strong>Non-purchase:</strong> 84.5%</span>
+                            </div>
+                            <div class="legend-box">
+                                <span class="legend-color" style="background-color:#26394d;"></span>
+                                <span><strong>Purchase:</strong> 15.5%</span>
+                            </div>
+                            <p class="mb-0 mt-3">
+                                This imbalance is expected because most visitors browse without buying.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="figure-caption-custom">
+                    Figure 1. Class distribution.
+                </p>
+
+                <p>
+                    Feature engineering is used to create stronger behavioral signals from the raw columns. For example:
+                </p>
+                <ul>
+                    <li><strong>Avg_Product_Time:</strong> average time spent per product-related page.</li>
+                    <li><strong>Avg_Admin_Time:</strong> average time spent per administrative page.</li>
+                    <li><strong>Total_Duration:</strong> total session duration across page categories.</li>
+                    <li><strong>Product_Focus_Ratio:</strong> how much of the session is focused on product-related pages.</li>
+                    <li><strong>Total_Page_Views:</strong> total number of pages visited during the session.</li>
+                    <li><strong>Month_Sin and Month_Cos:</strong> cyclical encoding of the month variable.</li>
+                </ul>
+
+                <p>
+                    The month variable is transformed into cyclical features so that the model understands seasonality. This is useful because January and December are close to each other in a calendar cycle, even though their raw numeric values are far apart.
+                </p>
+
+                <div class="formula-box">
+                    <span>Month_Sin = sin((2π · Month) / 12)</span>
+                    <span>Month_Cos = cos((2π · Month) / 12)</span>
+                </div>
+
+                <p class="figure-caption-custom">
+                    Figure 2. Cyclical month transformation.
+                </p>
+
+                <p>
+                    After creating the new behavioral features, I apply the main preprocessing steps inside a 
+                    scikit-learn pipeline. This is important because the transformations must be learned only 
+                    from the training data. The same learned transformations are then applied to the calibration 
+                    and test sets, which prevents data leakage.
+                </p>
+
+                <div class="preprocessing-grid">
+                    <div class="preprocessing-card">
+                        <h5>Target Encoding</h5>
+                        <p>
+                            High-cardinality categorical variables such as TrafficType, VisitorType, Browser, 
+                            OperatingSystems, and Region are transformed with TargetEncoder. Instead of creating 
+                            many one-hot columns, each category is represented by its average purchase tendency 
+                            learned only from the training data.
+                        </p>
+                    </div>
+
+                    <div class="preprocessing-card">
+                        <h5>Robust Scaling</h5>
+                        <p>
+                            Continuous numerical features are scaled with RobustScaler. This is useful because 
+                            session duration and page-view variables may contain extreme values. RobustScaler 
+                            uses the median and interquartile range, making it less sensitive to outliers.
+                        </p>
+                    </div>
+
+                    <div class="preprocessing-card">
+                        <h5>Leakage-Safe Pipeline</h5>
+                        <p>
+                            Target encoding and scaling are placed inside the model pipeline. During cross-validation, 
+                            each fold learns its own preprocessing statistics only from the training fold, not from 
+                            validation, calibration, or test data.
+                        </p>
+                    </div>
+                </div>
+
+                <p>
+                    The RobustScaler transformation can be summarized as follows:
+                </p>
+
+                <div class="scaler-formula-box">
+                    <div class="scaler-formula-main">
+                        x<sub>scaled</sub> = (x - median(X)) / IQR(X)
+                    </div>
+                    <div class="scaler-formula-sub">
+                        where IQR(X) = Q3(X) - Q1(X)
+                    </div>
+                </div>
+
+                <p>
+                    In simple terms, this means each numerical value is centered around the median and scaled 
+                    by the middle spread of the data. This is more stable than standard scaling when some users 
+                    spend unusually long or unusually short time on the website.
+                </p>
+
+                <p>
+                    After feature engineering, SHAP is used to inspect which variables influence the model most strongly. The plots below show both the direction of the feature effects and the average importance of each feature.
+                </p>
+
+                <img src="../website_images/projects/churn-prediction/foto7.png" alt="Random Forest SHAP feature impact beeswarm plot" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 3. SHAP beeswarm plot showing the direction and size of each feature's impact.
+                </p>
+
+                <img src="../website_images/projects/churn-prediction/foto8.png" alt="Random Forest mean absolute SHAP values" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 4. Mean absolute SHAP values showing global feature importance.
+                </p>
+
+                <p>
+                    ExitRates is the strongest feature in the model. Low ExitRates are strongly associated with higher purchase probability, while high ExitRates usually indicate that the user is close to leaving the website. Total page views, total duration, seasonality, and visitor type also provide useful signals about customer intent.
+                </p>
+
+                <h3>Model Assumptions, Training, and Performance Metrics:</h3>
+                <p>
+                    The project compares a simple baseline model with more advanced tree-based models. Logistic Regression is used as the baseline because it is fast, cheap to train, and easy to interpret. LightGBM, XGBoost, and Random Forest are used as stronger machine learning models, and a Stacked Ensemble is also tested to combine their predictions.
+                </p>
+
+                <p>
+                    The stacked model combines the outputs of several models and passes them into a final logistic regression layer. This allows the system to test whether combining different models improves performance over the best individual model.
+                </p>
+
+                <img src="../website_images/projects/churn-prediction/foto3.png" alt="Stacked ensemble model structure" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 5. Stacked ensemble structure used to combine base model predictions.
+                </p>
+
+                <p>
+                    Hyperparameter tuning is done with Optuna using the TPE sampler. This is more efficient than blind grid search because it learns from previous trials and searches better parameter regions. Successive Halving Pruner is used to stop weak trials early, and early stopping is used for boosting models.
+                </p>
+
+                <p>
+                    The most important metric during model optimization is the Brier Score. This is because the project depends on trustworthy probabilities. A model that says a customer has an 80% chance of purchasing should be close to correct about 8 out of 10 times. Therefore, probability calibration is more important here than only ranking customers.
+                </p>
+
+                <div class="row g-3 my-3">
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.2732</div>
+                            <strong>Log Loss</strong>
+                            <p class="mb-0">Penalizes confident wrong predictions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.0868</div>
+                            <strong>Brier Score</strong>
+                            <p class="mb-0">Measures probability reliability.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.8055</div>
+                            <strong>Balanced Accuracy</strong>
+                            <p class="mb-0">Checks performance across both classes.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.6901</div>
+                            <strong>F2 Score</strong>
+                            <p class="mb-0">Prioritizes recall for marketing use.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.8727</div>
+                            <strong>Recall</strong>
+                            <p class="mb-0">Captures most actual buyers.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.3757</div>
+                            <strong>Precision</strong>
+                            <p class="mb-0">Shows the cost of high recall.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="figure-caption-custom">
+                    Figure 6. Final test metrics.
+                </p>
+
+                <h3>A More Sophisticated Approach:</h3>
+                <p>
+                    In this project, the base models are LightGBM, XGBoost, and Random Forest. Logistic Regression is used as the final meta-learner because it is simple and less likely to overfit the base model outputs. However, the stacked model does not beat LightGBM by a meaningful margin, probably because the base models are all tree-based and therefore not diverse enough.
+                </p>
+
+                <p>
+                    After threshold tuning, each model is wrapped inside a calibrated structure. This keeps the prediction pipeline consistent and allows the same logic to be applied across different algorithms.
+                </p>
+
+                <img src="../website_images/projects/churn-prediction/foto5.png" alt="Calibrated model pipeline structure" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 7. Calibrated model pipeline structure after threshold tuning.
+                </p>
+
+                <p>
+                    The threshold plots below show how precision, recall, and F2 Score change as the decision threshold moves. Since the business goal is to catch as many potential buyers as possible, the selected thresholds are lower than the default 0.50 threshold.
+                </p>
+
+                <img src="../website_images/projects/churn-prediction/foto6.png" alt="Threshold tuning plots for all models" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 8. Threshold tuning results for Logistic Regression, LightGBM, XGBoost, Random Forest, and Stacked Ensemble.
+                </p>
+
+                <h3>Skills:</h3>
+                <p>
+                    <strong>Python & Data Work:</strong> pandas, NumPy, dataframe operations, feature engineering, model evaluation<br>
+                    <strong>Big Data & Distributed Computing:</strong> PySpark, Spark DataFrames, stratified splitting at scale, pandas UDFs<br>
+                    <strong>Machine Learning:</strong> LightGBM, XGBoost, Random Forest, Logistic Regression, Stacked Ensemble, binary classification, threshold tuning<br>
+                    <strong>Probabilistic ML:</strong> Brier Score optimization, probability calibration, conformal prediction, prediction sets, uncertainty-aware decision-making<br>
+                    <strong>Model Selection & Tuning:</strong> Optuna, TPE sampler, Successive Halving Pruner, early stopping, cross-validation, out-of-fold predictions<br>
+                    <strong>Explainability:</strong> SHAP feature importance, beeswarm interpretation, global and local model explanation<br>
+                    <strong>AWS & Cloud:</strong> AWS EMR, Amazon S3, distributed Spark execution, AWS CLI, boto3, cloud-based model artifacts<br>
+                    <strong>MLOps:</strong> MLflow experiment tracking, model logging, model loading, model artifact management, end-to-end pipeline design<br>
+                </p>
+
+                <h3>Evaluation Based on Relevant Metrics:</h3>
+                <p>
+                    The best-performing model is selected using out-of-fold F2 scores. F2 Score is useful here because the marketing objective values recall more than precision. Missing a potential buyer is more costly than sending a discount to someone who may not buy.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Out-of-Fold F2 Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Logistic Regression</td>
+                            <td>0.6220</td>
+                        </tr>
+                        <tr>
+                            <td>LightGBM</td>
+                            <td>0.6936</td>
+                        </tr>
+                        <tr>
+                            <td>XGBoost</td>
+                            <td>0.6933</td>
+                        </tr>
+                        <tr>
+                            <td>Random Forest</td>
+                            <td>0.6895</td>
+                        </tr>
+                        <tr>
+                            <td>Stacked Ensemble</td>
+                            <td>0.6934</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    LightGBM achieves the highest out-of-fold F2 Score with a value of 0.6936. The Stacked Ensemble and XGBoost are very close, but LightGBM is selected as the best model because it gives the strongest result with a simpler final structure.
+                </p>
+
+                <h3>Interpretation of Results:</h3>
+                <p>
+                    The most important part of this project is the interpretation of uncertainty. A normal classifier returns a hard prediction such as 0 or 1. Conformal prediction adds another layer by showing whether that hard prediction is actually reliable.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Revenue</th>
+                            <th>Raw Probability</th>
+                            <th>Tuned Prediction</th>
+                            <th>CP 99 Set</th>
+                            <th>CP 95 Set</th>
+                            <th>CP 90 Set</th>
+                            <th>CP 80 Set</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>0.3616</td>
+                            <td>1</td>
+                            <td>[0, 1]</td>
+                            <td>[0, 1]</td>
+                            <td>[0]</td>
+                            <td>[]</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    In this example, the actual result is <strong>Revenue = 0</strong>, meaning the customer did not purchase. However, the tuned model prediction is <strong>1</strong>, so the standard model incorrectly labels this customer as a likely buyer.
+                </p>
+                <p>
+                    The raw probability is only around <strong>36%</strong>. This means the model had enough signal to cross the tuned decision threshold, but it was not truly confident. This is exactly where conformal prediction becomes useful.
+                </p>
+                <p>
+                    At the 99% and 95% confidence levels, the conformal prediction set is <strong>[0, 1]</strong>. This means the model is admitting uncertainty. It cannot confidently say whether the customer will buy or not. A normal model hides this uncertainty, but conformal prediction makes it visible.
+                </p>
+                <p>
+                    From a business perspective, this customer is not a guaranteed buyer. They are a borderline customer. This is the type of customer who may need an incentive, such as a 15% or 20% discount, before leaving the website. Without conformal prediction, the marketing team might wrongly assume that this customer is already likely to buy and may not take action.
+                </p>
+
+                <h3>Results & Business Recommendation:</h3>
+                <p>
+                    The project demonstrates that probability-based machine learning can be combined with conformal prediction to support better marketing decisions. The model does not only say who is likely to purchase. It also tells the team when the prediction is uncertain.
+                </p>
+                <p>
+                    The main recommendation is to use the model in two stages. First, use the tuned binary prediction to identify likely buyers or churn-risk customers. Second, use the conformal prediction sets to decide how confident the system is. Customers with uncertain sets such as <strong>[0, 1]</strong> should be treated carefully because they may be persuadable.
+                </p>
+                <p>
+                    This creates a more practical marketing strategy. The company can avoid wasting budget on customers who are already likely to buy, while focusing stronger incentives on uncertain customers who may otherwise leave without purchasing.
+                </p>
+
+                <h3>Next Steps:</h3>
+                <ol>
+                    <li>Add cost-sensitive business rules to decide when a discount is financially worth sending.</li>
+                    <li>Improve model diversity in the stacked ensemble by adding non-tree-based models.</li>
+                    <li>Deploy the model as an API so that a website or marketing platform can request predictions in real time.</li>
+                </ol>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
