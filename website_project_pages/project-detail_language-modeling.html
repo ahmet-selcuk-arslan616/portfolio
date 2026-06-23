@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine-Tuning Language Models for Text Generation - Project Detail</title>
+    <link rel="icon" type="image/png" href="../website_images/icons/portfolio.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding-top: 70px;
+            color: #333;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        p, li {
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .figure-caption-custom {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: center;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 1rem;
+            background-color: #fafafa;
+            height: 100%;
+        }
+
+        .metric-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0d6efd;
+        }
+
+        .simple-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .simple-table th,
+        .simple-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .simple-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .visual-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            background-color: #fafafa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .architecture-flow {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .architecture-step {
+            flex: 1;
+            min-width: 140px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .architecture-step strong {
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: #777;
+            font-weight: 700;
+        }
+
+        .sample-box {
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 1rem;
+            background-color: #fafafa;
+            margin: 1rem 0;
+        }
+
+        .sample-box strong {
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .sample-text {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 0.98rem;
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #eef4ff;
+            color: #0d6efd;
+            border: 1px solid #cfe0ff;
+            border-radius: 20px;
+            padding: 0.25rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.2rem 0.2rem 0.2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .arrow {
+                display: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Ahmet Selçuk Arslan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open/Close Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#projects">Projects/Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                
+                <h1 class="display-6 fw-bold mb-4">Fine-Tuning Language Models for Text Generation</h1>
+                <hr class="mb-5">
+
+                <h3>Executive Summary:</h3>
+                <p>
+                    This project explores how different language modelling approaches learn to generate text in the style of <em>Alice's Adventures in Wonderland</em>. The work starts with a character-level GRU model, then moves to word-level recurrent neural networks, pre-trained GloVe embeddings, a custom decoder-only transformer, and finally a fine-tuned DistilGPT-2 model.
+                </p>
+                <p>
+                    The main goal is to compare models trained from scratch with a pre-trained transformer that is fine-tuned on a specific corpus. The results show a clear pattern: custom RNNs and transformers can learn the structure of the book, but fine-tuning a pre-trained transformer produces more natural and context-aware text with much less task-specific training.
+                </p>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to GitHub Repository:</strong> 
+                        <a href="https://github.com/ahmet-selcuk-arslan616/LM.git" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            Fine-Tuning Language Models for Text Generation ↗
+                        </a>
+                    </p>
+                </div>
+                
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to Fine-Tuned Language Model:</strong> 
+                        <a href="https://huggingface.co/asa616/alicesadventures-distilgpt2-finetuned" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            alicesadventures-distilgpt2-finetuned ↗
+                        </a>
+                    </p>
+                </div>
+
+                <h3>Technical Problem & Practical Relevance:</h3>
+                <p>
+                    The technical problem is simple but important: given a small literary corpus, can a model learn the language patterns well enough to generate coherent continuation text? This is the same core idea behind many real-world NLP systems, such as autocomplete, domain-specific chatbots, writing assistants, and internal knowledge copilots.
+                </p>
+                <p>
+                    The practical challenge is that different language modelling approaches behave very differently. Character-level models are flexible but often struggle with long-term meaning. Word-level models capture meaning better but can fail on unknown words. Transformers handle context more effectively, while pre-trained models such as DistilGPT-2 already know general English and only need fine-tuning to adapt to a specific domain.
+                </p>
+
+                <h3>Dataset & Task Context:</h3>
+                <p>
+                    The dataset is the text of <em>Alice's Adventures in Wonderland</em> by Lewis Carroll. The text is cleaned by removing metadata and unnecessary spacing, then converted into sequences for language modelling.
+                </p>
+                <p>
+                    The cleaned character-level dataset contains approximately <strong>143,000 character tokens</strong> and <strong>74 distinct character IDs</strong>. For the word-level models, the vocabulary contains roughly <strong>3.3k word tokens</strong>. Each model is trained to predict the next token in a sequence.
+                </p>
+
+                <div class="visual-card">
+                    <h4 class="mt-0">Sequence Modelling Setup</h4>
+                    <div class="architecture-flow">
+                        <div class="architecture-step">
+                            <strong>Raw Text</strong>
+                            Alice corpus
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="architecture-step">
+                            <strong>Tokenization</strong>
+                            characters or words
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="architecture-step">
+                            <strong>50-Token Windows</strong>
+                            input / target pairs
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="architecture-step">
+                            <strong>Language Model</strong>
+                            next-token prediction
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="architecture-step">
+                            <strong>Generated Text</strong>
+                            model continuation
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Methodology:</h3>
+                <ol>
+                    <li><strong>Text Cleaning:</strong> The raw book text is cleaned by removing project metadata, special markers, and repeated whitespace.</li>
+                    <li><strong>Character-Level Modelling:</strong> Each character is mapped to a unique integer. A GRU model is trained to predict the next character.</li>
+                    <li><strong>Deep GRU Improvement:</strong> A deeper GRU model is tested using a larger embedding layer, two GRU layers, dropout, and a lower learning rate.</li>
+                    <li><strong>Word-Level Modelling:</strong> The pipeline is adapted from character tokens to word tokens, allowing the model to learn more meaningful semantic patterns.</li>
+                    <li><strong>Pre-Trained Static Embeddings:</strong> GloVe 100-dimensional embeddings are loaded and used as a frozen embedding layer inside a GRU model.</li>
+                    <li><strong>Custom Transformer:</strong> A decoder-only transformer is implemented using token embeddings, positional embeddings, multi-head attention, causal masking, and feed-forward layers.</li>
+                    <li><strong>Pre-Trained Transformer Fine-Tuning:</strong> DistilGPT-2 is fine-tuned for three epochs on the Alice corpus and compared against the raw pre-trained model.</li>
+                    <li><strong>Model Comparison:</strong> The models are compared using loss, perplexity, training stability, generation quality, and prompt-based examples.</li>
+                </ol>
+
+                <h3>Model Architectures:</h3>
+                <p>
+                    The project deliberately moves from simpler models to more advanced ones. This makes the comparison meaningful because each model family solves a different limitation of the previous approach.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Main Idea</th>
+                            <th>Why It Matters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Character-Level GRU</td>
+                            <td>Predicts the next character using an embedding layer and GRU.</td>
+                            <td>Good for learning spelling and local patterns, but weaker at meaning.</td>
+                        </tr>
+                        <tr>
+                            <td>Deep Character GRU</td>
+                            <td>Uses larger embeddings and stacked GRU layers.</td>
+                            <td>Improves generation quality but becomes more unstable during training.</td>
+                        </tr>
+                        <tr>
+                            <td>Word-Level GRU</td>
+                            <td>Predicts the next word instead of the next character.</td>
+                            <td>Captures semantic context better than character-level modelling.</td>
+                        </tr>
+                        <tr>
+                            <td>GloVe RNN</td>
+                            <td>Uses pre-trained static word embeddings.</td>
+                            <td>Tests whether external semantic knowledge improves generation.</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Transformer</td>
+                            <td>Uses causal self-attention and positional embeddings.</td>
+                            <td>Provides more stable and faster training with fewer parameters.</td>
+                        </tr>
+                        <tr>
+                            <td>Fine-Tuned DistilGPT-2</td>
+                            <td>Starts from a pre-trained transformer and adapts it to the Alice corpus.</td>
+                            <td>Produces more natural text and handles unknown prompts better.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Training Diagnostics:</h3>
+                <p>
+                    Loss and perplexity are used to monitor model training. Perplexity is especially useful for language modelling because it tells how uncertain the model is when predicting the next token. Lower perplexity generally means the model is more confident and better aligned with the training text.
+                </p>
+
+                <img src="../website_images/projects/language-modeling/fig1.png" alt="Word-level GRU loss and perplexity curves" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 1. Word-level GRU training curve.
+                </p>
+
+                <img src="../website_images/projects/language-modeling/fig2.png" alt="GloVe RNN loss and perplexity curves" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 2. GloVe-based RNN training curve. Pre-trained static embeddings converge quickly but do not outperform the learned 512-dimensional embedding model.
+                </p>
+
+                <img src="../website_images/projects/language-modeling/fig3.png" alt="Custom transformer loss and perplexity curves" class="project-image d-block mx-auto">
+                <p class="figure-caption-custom">
+                    Figure 3. Custom transformer training curve. The transformer remains stable across all 50 epochs and avoids the severe training deterioration seen in some GRU models.
+                </p>
+
+                <h3>Evaluation Based on Relevant Metrics:</h3>
+                <p>
+                    The models are mainly evaluated with training loss, perplexity, and generated text quality. Since the goal is language generation rather than classification, the most important question is not only whether the loss is low, but also whether the generated text is coherent, relevant, and stylistically close to the source corpus.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Best / Final Loss</th>
+                            <th>Best / Final Perplexity</th>
+                            <th>Key Observation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baseline Character GRU</td>
+                            <td>1.3818</td>
+                            <td>3.9842</td>
+                            <td>Improves early, then becomes unstable after later epochs.</td>
+                        </tr>
+                        <tr>
+                            <td>Deep Character GRU</td>
+                            <td>0.3028</td>
+                            <td>1.3537</td>
+                            <td>Much better than the baseline, but suffers from exploding-gradient-like instability.</td>
+                        </tr>
+                        <tr>
+                            <td>Word-Level GRU</td>
+                            <td>0.1253</td>
+                            <td>1.1336</td>
+                            <td>Best scratch-trained RNN result; captures semantic context better.</td>
+                        </tr>
+                        <tr>
+                            <td>GloVe RNN</td>
+                            <td>0.1474</td>
+                            <td>1.1589</td>
+                            <td>Slightly worse than learned embeddings, likely because the frozen GloVe layer uses only 100 dimensions.</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Transformer</td>
+                            <td>0.1430</td>
+                            <td>1.1538</td>
+                            <td>Stable, fast, and parameter-efficient compared with the larger GRU models.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="row g-3 my-3">
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.1253</div>
+                            <strong>Best Scratch RNN Loss</strong>
+                            <p class="mb-0">Achieved by the word-level GRU.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">1.1336</div>
+                            <strong>Best Scratch RNN Perplexity</strong>
+                            <p class="mb-0">Shows strong next-word prediction performance.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">882k</div>
+                            <strong>Transformer Parameters</strong>
+                            <p class="mb-0">Much smaller than the large GRU variants.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Interpretation of Generated Text:</h3>
+                <p>
+                    The most important qualitative result comes from comparing raw DistilGPT-2 with the fine-tuned version. The raw model produces fluent English, but it does not understand the Alice-specific context. After only three epochs of fine-tuning, the model starts producing text that is much more aligned with the characters, objects, and style of the book.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Prompt</th>
+                            <th>Raw DistilGPT-2</th>
+                            <th>Fine-Tuned DistilGPT-2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>The White Rabbit</td>
+                            <td>The raw model moves into unrelated content, such as describing the White Rabbit as a cat breed.</td>
+                            <td>The fine-tuned model generates Alice-style text involving the jury, characters, and book-specific context.</td>
+                        </tr>
+                        <tr>
+                            <td>Suddenly a large</td>
+                            <td>The raw model generates generic news-like text about hunger strikes.</td>
+                            <td>The fine-tuned model produces a scene-like continuation that fits the story world better.</td>
+                        </tr>
+                        <tr>
+                            <td>She looked at</td>
+                            <td>The raw model produces generic conversational text unrelated to the book.</td>
+                            <td>The fine-tuned model mentions Alice-style objects and characters, including the White Rabbit.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="sample-box">
+                    <strong>Example: Raw DistilGPT-2</strong>
+                    <p class="sample-text">
+                        “The White Rabbit is the second of three breeds of the cat...”
+                    </p>
+                </div>
+
+                <div class="sample-box">
+                    <strong>Example: Fine-Tuned DistilGPT-2</strong>
+                    <p class="sample-text">
+                        “The White Rabbit, the jury-box, the three birds of the jury...”
+                    </p>
+                </div>
+
+                <p>
+                    This comparison is the strongest portfolio point of the project. It shows why fine-tuning matters: a general model may produce fluent language, but a fine-tuned model learns the target domain.
+                </p>
+
+                <h3>Skills:</h3>
+                <p>
+                    <strong>Deep Learning:</strong> TensorFlow, Keras, PyTorch, GRU networks, stacked RNNs, dropout, embeddings, sequence modelling<br>
+                    <strong>Language Modelling:</strong> character-level tokenization, word-level tokenization, next-token prediction, text generation, perplexity evaluation<br>
+                    <strong>Transformers:</strong> decoder-only transformer architecture, causal masking, multi-head self-attention, positional embeddings<br>
+                    <strong>Fine-Tuning:</strong> DistilGPT-2, Hugging Face Transformers, AdamW, corpus-specific adaptation, prompt-based generation comparison<br>
+                    <strong>Pre-Trained Embeddings:</strong> GloVe 6B embeddings, frozen embedding layers, embedding matrix construction<br>
+                    <strong>Training Workflow:</strong> checkpoints, model saving/loading, training diagnostics, loss/perplexity tracking, qualitative evaluation<br>
+                    <strong>Python & Data Work:</strong> NumPy, pandas, regex text cleaning, token sequence preparation, matplotlib visualization<br>
+                </p>
+
+                <h3>Results & Technical Takeaways:</h3>
+                <p>
+                    The word-level GRU achieves the best RNN performance, with a loss of 0.1253 and perplexity of 1.1336. This suggests that word-level tokenization captures semantic patterns more effectively than character-level tokenization for this corpus.
+                </p>
+                <p>
+                    The custom transformer is more stable than the GRU-based models and trains much faster. Even with fewer parameters, it avoids the severe instability observed in some recurrent models. This demonstrates the practical advantage of attention-based architectures for sequence modelling.
+                </p>
+                <p>
+                    The fine-tuned DistilGPT-2 model provides the clearest qualitative improvement. Compared with raw DistilGPT-2, it generates text that is much more specific to the Alice corpus. This shows that fine-tuning a pre-trained language model can be more effective than training a small model from scratch when natural text quality is the main goal.
+                </p>
+
+                <h3>Next Steps:</h3>
+                <ol>
+                    <li>Add a held-out validation set to compare models more rigorously beyond training loss and generated samples.</li>
+                    <li>Use gradient clipping to reduce the instability observed in the GRU models.</li>
+                    <li>Experiment with temperature, top-k sampling, and nucleus sampling to make generated text more diverse.</li>
+                    <li>Fine-tune a slightly larger transformer model and compare quality against DistilGPT-2.</li>
+                    <li>Build a small Streamlit demo where users can enter a prompt and compare outputs from the custom transformer and fine-tuned GPT model.</li>
+                </ol>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

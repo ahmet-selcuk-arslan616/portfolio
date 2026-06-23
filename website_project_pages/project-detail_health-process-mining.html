@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Readmission Bottleneck Analysis with XAI and Process Mining - Project Detail</title>
+    <link rel="icon" type="image/png" href="../website_images/icons/portfolio.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding-top: 70px;
+            color: #333;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .large-process-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+            background: #fff;
+        }
+
+        h3 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        p, li {
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .figure-caption-custom {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: center;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 1rem;
+            background-color: #fafafa;
+            height: 100%;
+        }
+
+        .metric-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0d6efd;
+        }
+
+        .simple-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .simple-table th,
+        .simple-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .simple-table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .visual-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            background-color: #fafafa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pipeline-flow {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .pipeline-step {
+            flex: 1;
+            min-width: 145px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .pipeline-step strong {
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .arrow {
+            display: flex;
+            align-items: center;
+            color: #777;
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .comparison-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 1rem;
+            background-color: #fafafa;
+        }
+
+        .comparison-card h5 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #eef4ff;
+            color: #0d6efd;
+            border: 1px solid #cfe0ff;
+            border-radius: 20px;
+            padding: 0.25rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.2rem 0.2rem 0.2rem 0;
+        }
+
+        .note-box {
+            border-left: 4px solid #0d6efd;
+            background-color: #f6f9ff;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .arrow {
+                display: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Ahmet Selçuk Arslan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Open/Close Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#projects">Projects/Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                
+                <h1 class="display-6 fw-bold mb-4">Mapping Hospital Readmission Bottlenecks with XAI and Process Mining</h1>
+                <hr class="mb-5">
+
+                <h3>Executive Summary:</h3>
+                <p>
+                    This project combines machine learning, explainable AI, and process mining to understand the operational bottlenecks behind 30-day hospital readmissions. Instead of only predicting whether a patient is likely to be readmitted, the project also maps how high-risk and low-risk patients move through the healthcare system differently.
+                </p>
+                <p>
+                    I generated a large synthetic healthcare dataset using Synthea, processed more than 3.1 million clinical encounters with PySpark, trained a Random Forest classifier for readmission prediction, used SHAP to identify the strongest risk drivers, and then applied PM4Py to visualize patient journeys as directly-follows graphs.
+                </p>
+                <p>
+                    The main finding is that high-risk patients do not simply have more encounters. They also experience more complex care pathways, more acute-care recycling, and faster return loops into emergency or inpatient care. This shows how predictive modelling and process mining can be combined to move from “who is at risk?” to “where is the system failing?”
+                </p>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to GitHub Repository:</strong> 
+                        <a href="https://github.com/ahmet-selcuk-arslan616/hospital_readmission_process_mining.git" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            Hospital Readmission Bottleneck Analysis ↗
+                        </a>
+                    </p>
+                </div>
+
+                <div class="my-4">
+                    <p class="fs-5 mb-3">
+                        <strong>Link to Full Report:</strong> 
+                        <a href="https://github.com/ahmet-selcuk-arslan616/hospital_readmission_process_mining/blob/main/Paper.pdf" target="_blank" class="text-primary text-decoration-none fw-semibold">
+                            Hospital Readmission Bottleneck Analysis Report ↗
+                        </a>
+                    </p>
+                </div>
+
+                <h3>Business Problem:</h3>
+                <p>
+                    Hospital readmissions create both clinical and operational pressure. They increase costs, consume staff and bed capacity, and often indicate that a patient's previous care pathway did not fully stabilize them. However, identifying high-risk patients alone is not enough. Healthcare administrators also need to understand where these patients get stuck inside the system.
+                </p>
+                <p>
+                    This project addresses that gap by combining risk prediction with process mining. The model first identifies patients with elevated readmission risk. Then, explainable AI is used to extract the main risk driver and split patients into meaningful cohorts. Finally, process mining shows how these cohorts move through admissions, discharges, emergency care, inpatient care, ambulatory care, and wellness visits.
+                </p>
+
+                <h3>Dataset & Technical Context:</h3>
+                <p>
+                    The dataset was generated with Synthea to simulate healthcare activity at the scale of a large state-level health system. The final dataset contains <strong>56,493 unique patients</strong> and <strong>3,133,014 clinical encounters</strong>. From these encounters, I created an event log with <strong>6,266,030 admission and discharge events</strong> for process mining.
+                </p>
+                <p>
+                    The prediction target is <strong>30-day readmission</strong>. A patient encounter is labelled as readmitted if the patient was discharged alive and then returned for emergency or inpatient care within 30 days.
+                </p>
+
+                <div class="row g-3 my-3">
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">56,493</div>
+                            <strong>Unique Patients</strong>
+                            <p class="mb-0">Synthetic population generated with Synthea.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">3.13M</div>
+                            <strong>Clinical Encounters</strong>
+                            <p class="mb-0">Large-scale encounter-level dataset.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">6.27M</div>
+                            <strong>Process Events</strong>
+                            <p class="mb-0">Admission and discharge events for PM4Py.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Cloud & Computing Setup:</h3>
+                <p>
+                    The project was run on <strong>Google Cloud Platform</strong> using a <strong>Vertex AI</strong> compute environment. The machine configuration was an <strong>N2 instance with 32 vCPUs and 128 GB RAM</strong>. This allowed me to process millions of rows while still keeping the machine learning and SHAP workflow compatible with Python-based tools such as scikit-learn and PM4Py.
+                </p>
+                <p>
+                    The Synthea generation stage was controlled carefully to avoid memory crashes. Instead of using all 32 cores at once, I ran 8 concurrent Java processes at a time, capped each process at around 2 GB of RAM, pushed each generated CSV segment to <strong>Google Cloud Storage</strong>, and cleaned local files immediately after upload.
+                </p>
+
+                <div class="visual-card">
+                    <h4 class="mt-0">End-to-End Pipeline</h4>
+                    <div class="pipeline-flow">
+                        <div class="pipeline-step">
+                            <strong>Synthea</strong>
+                            synthetic patient generation
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="pipeline-step">
+                            <strong>GCS</strong>
+                            cloud storage for CSV outputs
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="pipeline-step">
+                            <strong>PySpark</strong>
+                            distributed preprocessing
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="pipeline-step">
+                            <strong>Random Forest</strong>
+                            readmission prediction
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="pipeline-step">
+                            <strong>SHAP</strong>
+                            risk-driver extraction
+                        </div>
+                        <div class="arrow">→</div>
+                        <div class="pipeline-step">
+                            <strong>PM4Py</strong>
+                            process mining and DFGs
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Methodology:</h3>
+                <ol>
+                    <li><strong>Synthetic Data Generation:</strong> I used Synthea to create a large synthetic healthcare dataset representing patient histories, encounters, conditions, providers, payers, and organizations.</li>
+                    <li><strong>Cloud-Based Data Storage:</strong> Generated CSV files were written to Google Cloud Storage so they could be loaded reliably into the distributed preprocessing pipeline.</li>
+                    <li><strong>Distributed Preprocessing:</strong> I used PySpark on Vertex AI to read the distributed CSV files, join patient and encounter records, calculate readmission labels, and engineer patient journey features.</li>
+                    <li><strong>Feature Engineering:</strong> I created clinical, financial, temporal, and operational features such as age at encounter, length of stay, admission hour, weekend admission, previous encounter count, days since last encounter, active condition count, and out-of-pocket cost.</li>
+                    <li><strong>Leakage Prevention:</strong> I removed variables that would reveal the target too directly, such as days_to_readmission, next_encounter_start, next_encounter_class, and DEATHDATE.</li>
+                    <li><strong>Predictive Modelling:</strong> I trained a Random Forest classifier and optimized it with Optuna using PR-AUC, which is more appropriate than accuracy or ROC-AUC for a severely imbalanced readmission dataset.</li>
+                    <li><strong>Explainable AI:</strong> I used SHAP TreeExplainer to identify which features were driving readmission risk and found REASONCODE to be the strongest risk driver.</li>
+                    <li><strong>Risk Cohort Stratification:</strong> I used the SHAP-derived REASONCODE threshold to split patients into high-risk and low-risk cohorts.</li>
+                    <li><strong>Process Mining:</strong> I generated directly-follows graphs with PM4Py to compare the patient pathways, transition frequencies, rework loops, and delays across the two cohorts.</li>
+                </ol>
+
+                <h3>Data Selection, Preprocessing, Feature Engineering and Transformation:</h3>
+                <p>
+                    The target variable is highly imbalanced. Out of 3,133,014 valid encounters, approximately 3,044,790 are negative cases and only 88,224 are positive readmission cases. This means only about 2.9% of encounters lead to a 30-day readmission.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Count / Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Unique Patients</td>
+                            <td>56,493</td>
+                        </tr>
+                        <tr>
+                            <td>Total Clinical Encounters</td>
+                            <td>3,133,014</td>
+                        </tr>
+                        <tr>
+                            <td>No Readmission</td>
+                            <td>3,044,790 / ~97.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Readmission</td>
+                            <td>88,224 / ~2.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Train / Validation / Test Split</td>
+                            <td>90% / 5% / 5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Feature engineering focused on making the patient journey measurable. I created variables that represent not only the current encounter, but also the patient's historical utilization pattern and care recency.
+                </p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h5>Clinical & Financial Features</h5>
+                        <p>
+                            AGE_AT_ENCOUNTER, NET_FINANCIAL_BURDEN, OUT_OF_POCKET_COST, HEALTHCARE_EXPENSES, and HEALTHCARE_COVERAGE.
+                        </p>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>Comorbidity Burden</h5>
+                        <p>
+                            ACTIVE_CONDITIONS_COUNT measures how many medical conditions were active at the exact time of admission.
+                        </p>
+                    </div>
+                    <div class="comparison-card">
+                        <h5>Temporal & Operational Features</h5>
+                        <p>
+                            LOS_HOURS, ADMISSION_HOUR, IS_WEEKEND, PREVIOUS_ENCOUNTER_COUNT, and DAYS_SINCE_LAST_ENCOUNTER.
+                        </p>
+                    </div>
+                </div>
+
+                <p>
+                    For categorical variables, I used a hybrid encoding strategy. Low-cardinality variables were handled with one-hot encoding, while high-cardinality variables such as CODE, PROVIDER, ORGANIZATION, PAYER, and REASONCODE were handled with target encoding. This avoided exploding the feature space while still preserving useful risk information.
+                </p>
+
+                <h3>Model Assumptions, Training, and Performance Metrics:</h3>
+                <p>
+                    The core model is a Random Forest classifier. I selected Random Forest because it is strong for tabular data, robust to non-linear relationships, and compatible with SHAP TreeExplainer. The goal was not only to predict readmissions, but also to interpret what drives those predictions.
+                </p>
+                <p>
+                    I optimized the model with Optuna over 50 trials using the TPE sampler. The optimization metric was <strong>PR-AUC</strong>, not accuracy. This matters because the readmission class is very rare. In a dataset where more than 97% of cases are non-readmissions, accuracy can look strong even when the model fails to identify the minority class.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Hyperparameter</th>
+                            <th>Optimal Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>n_estimators</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td>max_depth</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>min_samples_split</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>min_samples_leaf</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>max_features</td>
+                            <td>log2</td>
+                        </tr>
+                        <tr>
+                            <td>max_samples</td>
+                            <td>~0.56</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Evaluation Based on Relevant Metrics:</h3>
+                <p>
+                    The final Random Forest model was evaluated on the unseen 5% test set. The key metric is PR-AUC because it focuses on how well the model identifies the rare readmission class.
+                </p>
+
+                <div class="row g-3 my-3">
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.4838</div>
+                            <strong>PR-AUC</strong>
+                            <p class="mb-0">Main metric for imbalanced readmission prediction.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.7761</div>
+                            <strong>Precision</strong>
+                            <p class="mb-0">When the model flags high risk, it is correct 77.61% of the time.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.2444</div>
+                            <strong>Recall</strong>
+                            <p class="mb-0">The model prioritizes confident high-risk cases over catching every case.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.3717</div>
+                            <strong>F1 Score</strong>
+                            <p class="mb-0">Balances precision and recall.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metric-card">
+                            <div class="metric-value">0.4276</div>
+                            <strong>MCC</strong>
+                            <p class="mb-0">A useful metric for imbalanced classification.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    The high precision is important for this project because SHAP thresholds are later extracted from model behaviour. A low-precision model would generate noisy explanations and weak risk cohorts. By prioritizing PR-AUC and precision, the model creates a more reliable basis for process mining.
+                </p>
+
+                <h3>Explainable AI: From Prediction to Risk Threshold:</h3>
+                <p>
+                    SHAP analysis identifies <strong>REASONCODE</strong> as the strongest driver of readmission risk, followed by CODE and DAYS_SINCE_LAST_ENCOUNTER. REASONCODE represents the diagnosis, illness, or medical reason behind the encounter.
+                </p>
+
+                <img src="../website_images/projects/health-process-mining/shap.png" alt="SHAP summary plot for readmission risk drivers" class="project-image d-block mx-auto">
+
+                <p class="figure-caption-custom">
+                    Figure 1. SHAP summary plot showing REASONCODE as the strongest global driver of readmission risk.
+                </p>
+
+                <p>
+                    Instead of using SHAP only as a descriptive explanation tool, I used it as a filtering mechanism. I isolated cases where REASONCODE had a positive SHAP contribution and calculated a target-encoded risk threshold of approximately <strong>0.09</strong>. Conditions above this threshold were used to identify high-risk patients for process mining.
+                </p>
+
+                <div class="note-box">
+                    <p class="mb-0">
+                        <strong>Important interpretation:</strong> In this project, “dangerous” and “safe” refer to statistical readmission risk, not clinical mortality or disease severity. A condition can appear “safe” if patients do not survive long enough to be readmitted, so the score should be interpreted as an operational readmission metric.
+                    </p>
+                </div>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>High-Risk REASONCODE Example</th>
+                            <th>Target-Encoded Risk Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Myocardial infarction</td>
+                            <td>0.9123</td>
+                        </tr>
+                        <tr>
+                            <td>Injury of knee</td>
+                            <td>0.7190</td>
+                        </tr>
+                        <tr>
+                            <td>Primary small cell malignant neoplasm of lung</td>
+                            <td>0.6498</td>
+                        </tr>
+                        <tr>
+                            <td>History of coronary artery bypass grafting</td>
+                            <td>0.5105</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Process Mining and Patient Journey Comparison:</h3>
+                <p>
+                    After extracting the risk threshold, I split the event log into high-risk and low-risk cohorts. Both cohorts contain a similar number of patients, but their event volume is very different.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Risk Group</th>
+                            <th>Patients</th>
+                            <th>Events</th>
+                            <th>Unique Activities</th>
+                            <th>Average Events / Patient</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>High-Risk</td>
+                            <td>28,149</td>
+                            <td>3,966,854</td>
+                            <td>20</td>
+                            <td>140.92</td>
+                        </tr>
+                        <tr>
+                            <td>Low-Risk</td>
+                            <td>28,344</td>
+                            <td>2,299,176</td>
+                            <td>20</td>
+                            <td>81.12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    High-risk patients generate around <strong>73.7% more events per patient</strong>. This means the difference is not caused by different activity types. Both groups have the same 20 activity types. The real difference is how frequently and how quickly patients cycle through those activities.
+                </p>
+
+                <h4>High-Risk Patient Journey:</h4>
+                <p>
+                    The high-risk process graph is denser and shows more rework loops, especially around acute and inpatient care. These loops suggest repeated returns to the healthcare system after discharge.
+                </p>
+
+                <img src="../website_images/projects/health-process-mining/high_risk_graph.png" alt="High-risk patient journey directly-follows graph" class="large-process-image d-block mx-auto">
+
+                <p class="figure-caption-custom">
+                    Figure 2. High-risk patient journey DFG. The graph shows denser pathways and more repeated acute-care transitions.
+                </p>
+
+                <h4>Low-Risk Patient Journey:</h4>
+                <p>
+                    The low-risk group shows a stronger wellness-oriented care pattern. Compared with the high-risk group, these patients are more likely to cycle through preventive or routine care pathways rather than acute readmission loops.
+                </p>
+
+                <img src="../website_images/projects/health-process-mining/low_risk_graph.png" alt="Low-risk patient journey directly-follows graph" class="large-process-image d-block mx-auto">
+
+                <p class="figure-caption-custom">
+                    Figure 3. Low-risk patient journey DFG. The graph shows relatively more wellness-oriented transitions and fewer inpatient readmission loops.
+                </p>
+
+                <h3>Interpretation of Results:</h3>
+                <p>
+                    The process mining results show two main bottlenecks. First, high-risk patients return to acute care much faster than low-risk patients. For example, the median delay from <strong>Emergency Discharge to Emergency Admission</strong> is 167 hours for high-risk patients, compared with 1,055 hours for low-risk patients. This suggests that high-risk patients are often discharged and then return quickly.
+                </p>
+                <p>
+                    Second, high-risk patients experience longer delays in some cross-care transitions. For example, <strong>Wellness Discharge to Inpatient Admission</strong> takes a median of 10,578 hours for high-risk patients, compared with 4,832 hours for low-risk patients. This suggests that some high-risk patients experience long periods of instability between care episodes before eventually needing inpatient care.
+                </p>
+
+                <table class="simple-table">
+                    <thead>
+                        <tr>
+                            <th>Transition</th>
+                            <th>High-Risk Median Delay</th>
+                            <th>Low-Risk Median Delay</th>
+                            <th>Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Emergency Discharge → Emergency Admission</td>
+                            <td>167 h</td>
+                            <td>1,055 h</td>
+                            <td>High-risk patients return to emergency care much faster.</td>
+                        </tr>
+                        <tr>
+                            <td>Inpatient Discharge → Inpatient Admission</td>
+                            <td>733 h</td>
+                            <td>4,032 h</td>
+                            <td>High-risk patients show a faster inpatient readmission loop.</td>
+                        </tr>
+                        <tr>
+                            <td>Wellness Discharge → Inpatient Admission</td>
+                            <td>10,578 h</td>
+                            <td>4,832 h</td>
+                            <td>High-risk patients face longer instability before inpatient admission.</td>
+                        </tr>
+                        <tr>
+                            <td>Ambulatory Discharge → Emergency Admission</td>
+                            <td>336 h</td>
+                            <td>2,085 h</td>
+                            <td>High-risk patients escalate from ambulatory to emergency care faster.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    The main operational insight is that high-risk patients face a dual bottleneck: rapid acute-care recycling and delayed cross-care handoffs. In practical terms, the hospital should not only predict readmission risk, but also inspect the discharge-to-readmission loops and transitions where patients return too quickly or wait too long between care settings.
+                </p>
+
+                <h3>Skills:</h3>
+                <p>
+                    <strong>Cloud & Infrastructure:</strong> Google Cloud Platform, Vertex AI, N2 compute instances, Google Cloud Storage, cloud-based data processing<br>
+                    <strong>Distributed Data Engineering:</strong> PySpark, Spark DataFrames, distributed joins, window functions, large-scale CSV ingestion, GCS connector<br>
+                    <strong>Synthetic Healthcare Data:</strong> Synthea, large-scale patient generation, encounter-level data modelling, event-log construction<br>
+                    <strong>Machine Learning:</strong> Random Forest, imbalanced binary classification, PR-AUC optimization, Optuna TPE hyperparameter tuning, train/validation/test splitting<br>
+                    <strong>Explainable AI:</strong> SHAP TreeExplainer, feature importance, risk threshold extraction, target-encoded risk interpretation<br>
+                    <strong>Process Mining:</strong> PM4Py, directly-follows graphs, event logs, transition frequency analysis, delay analysis, patient journey comparison<br>
+                    <strong>Healthcare Analytics:</strong> 30-day readmission prediction, clinical pathway analysis, bottleneck detection, operational risk stratification<br>
+                    <strong>Python & Data Work:</strong> pandas, NumPy, scikit-learn, matplotlib, multiprocessing/concurrent futures, data cleaning and feature engineering<br>
+                </p>
+
+                <h3>Results & Business Recommendation:</h3>
+                <p>
+                    The project demonstrates that predictive modelling and process mining are more powerful when used together. The Random Forest model identifies patients with elevated readmission risk, SHAP explains which features drive that risk, and PM4Py shows where those patients move differently through the hospital system.
+                </p>
+                <p>
+                    The strongest operational recommendation is to focus on high-risk patients who cycle quickly back into emergency or inpatient care after discharge. These patients likely need stronger discharge planning, earlier follow-up, and better handoff monitoring across care settings.
+                </p>
+                <p>
+                    For hospital administrators, this workflow provides a practical decision-support framework: predict readmission risk, explain the source of that risk, split patients into meaningful cohorts, and use process mining to identify the bottlenecks that should be improved first.
+                </p>
+
+                <h3>Limitations:</h3>
+                <p>
+                    The main limitation is the use of target encoding for high-cardinality clinical categories such as REASONCODE. This was necessary because one-hot encoding millions of records with many diagnosis categories would have increased memory requirements substantially. Target encoding preserves useful risk ordering, but it is less granular than category-level SHAP interpretation from one-hot encoded features.
+                </p>
+                <p>
+                    A second limitation is that the data is synthetic. Synthea is useful for scalable experimentation, but real hospital data would be needed before making clinical or operational decisions.
+                </p>
+
+                <h3>Next Steps:</h3>
+                <ol>
+                    <li>Test the pipeline on real hospital event logs and real readmission data.</li>
+                    <li>Use more granular encoding for clinical categories if additional compute resources are available.</li>
+                    <li>Add an interactive dashboard to compare high-risk and low-risk patient pathways.</li>
+                    <li>Introduce cost-sensitive modelling to estimate the operational value of preventing specific readmission loops.</li>
+                </ol>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
